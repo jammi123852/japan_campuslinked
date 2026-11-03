@@ -1,0 +1,44 @@
+{
+  "expo": {
+    "name": "KSU Campus",
+    "slug": "ksu-campus",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "ios": {
+      "supportsTablet": false
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#E6F4FE",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false
+    },
+    "web": {
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro",
+      "output": "single"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-status-bar",
+      "expo-font",
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "時間割の画像を読み取るために写真へのアクセスを使用します。画像は端末の外に送信しません。",
+          "cameraPermission": "時間割を撮影して読み取るためにカメラを使用します。画像は端末の外に送信しません。",
+          "microphonePermission": false
+        }
+      ]
+    ],
+    "scheme": "ksucampus",
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}

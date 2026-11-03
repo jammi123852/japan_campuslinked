@@ -1,0 +1,52 @@
+{
+  "name": "ksu-campus",
+  "version": "1.0.0",
+  "main": "expo-router/entry",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^1.3.0",
+    "@expo/vector-icons": "^15.0.2",
+    "@react-native-async-storage/async-storage": "2.2.0",
+    "@react-native-ml-kit/text-recognition": "^2.0.0",
+    "@supabase/supabase-js": "^2.118.0",
+    "expo": "~58.0.21",
+    "expo-constants": "~58.0.14",
+    "expo-document-picker": "~58.0.4",
+    "expo-font": "~58.0.11",
+    "expo-image-manipulator": "~58.0.16",
+    "expo-image-picker": "~58.0.10",
+    "expo-linking": "~58.0.15",
+    "expo-router": "~58.0.28",
+    "expo-status-bar": "~58.0.4",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "react-native": "0.88.0",
+    "react-native-safe-area-context": "~5.10.1",
+    "react-native-screens": "~4.30.0",
+    "react-native-web": "^0.21.4"
+  },
+  "devDependencies": {
+    "@expo/ngrok": "^4.1.3",
+    "@types/node": "^24.19.2",
+    "@types/react": "~19.3.0",
+    "eslint": "^9.0.0",
+    "eslint-config-expo": "~58.0.4",
+    "typescript": "~6.0.3"
+  },
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web",
+    "typecheck": "tsc --noEmit && tsc -p server",
+    "lint": "expo lint",
+    "start:tunnel": "expo start --tunnel",
+    "deploy:web": "bash scripts/deploy-gh-pages.sh",
+    "server": "node --disable-warning=ExperimentalWarning --env-file-if-exists=server/.env server/index.ts",
+    "share": "bash scripts/start-share.sh",
+    "share:update": "bash scripts/share-update.sh",
+    "test": "node scripts/test-parse-timetable.mjs && node scripts/test-lecture-logic.mjs && node --no-warnings --import ./scripts/ts-resolve.mjs scripts/test-personal-logic.mjs && node --no-warnings --import ./scripts/ts-resolve.mjs scripts/test-academic.mjs && node --no-warnings --import ./scripts/ts-resolve.mjs scripts/test-allcourses.mjs && node scripts/test-server.mjs && node scripts/test-server-reviews.mjs && node --disable-warning=ExperimentalWarning scripts/test-mail.mjs && node --no-warnings --import ./scripts/ts-resolve.mjs scripts/test-assistant.mjs && node --disable-warning=ExperimentalWarning scripts/test-server-crud.mjs && node --no-warnings --import ./scripts/ts-resolve.mjs scripts/test-builder.mjs && node --disable-warning=ExperimentalWarning scripts/test-server-helpful.mjs",
+    "server:reset-db": "bash scripts/reset-shared-db.sh",
+    "deploy:vercel": "bash scripts/deploy-vercel.sh"
+  },
+  "private": true
+}
