@@ -1,0 +1,167 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-29T00:00:00+09:00",
+  "title": "Design System: KSU Campus",
+  "extensions": {
+    "colorMeta": {
+      "accent": { "role": "primary", "displayName": "캠퍼스 청록", "canonical": "#087A70", "tonalRamp": ["#03332F", "#054B45", "#06635B", "#087A70", "#2E9A90", "#7CC4BC", "#C2E5E1", "#E6F4F2"] },
+      "accent-pressed": { "role": "primary", "displayName": "눌린 청록", "canonical": "#06635B" },
+      "accent-soft": { "role": "primary", "displayName": "옅은 청록", "canonical": "#E6F4F2" },
+      "on-accent": { "role": "primary", "displayName": "청록 위 흰 글자", "canonical": "#FFFFFF" },
+      "bg": { "role": "neutral", "displayName": "회색 책상", "canonical": "#F2F4F6", "tonalRamp": ["#191F28", "#333D4B", "#4E5968", "#6B7684", "#8B95A1", "#B0B8C1", "#E5E8EB", "#F2F4F6"] },
+      "surface": { "role": "neutral", "displayName": "흰 블록", "canonical": "#FFFFFF" },
+      "surface-pressed": { "role": "neutral", "displayName": "눌린 블록", "canonical": "#F2F4F6" },
+      "fill": { "role": "neutral", "displayName": "채움 회색", "canonical": "#F2F4F6" },
+      "divider": { "role": "neutral", "displayName": "구분선 회색", "canonical": "#E5E8EB" },
+      "text": { "role": "neutral", "displayName": "먹색", "canonical": "#191F28" },
+      "text-secondary": { "role": "neutral", "displayName": "보조 회색", "canonical": "#4E5968" },
+      "text-tertiary": { "role": "neutral", "displayName": "3차 회색 (흰 블록 위 전용)", "canonical": "#6B7684" },
+      "text-disabled": { "role": "neutral", "displayName": "비활성 회색", "canonical": "#B0B8C1" },
+      "danger": { "role": "status", "displayName": "위험", "canonical": "#D92D20", "tonalRamp": ["#55120D", "#7A1A12", "#B42318", "#D92D20", "#E8665C", "#F2A29B", "#F9D3CF", "#FDECEA"] },
+      "danger-soft": { "role": "status", "displayName": "위험 바탕", "canonical": "#FDECEA" },
+      "danger-text": { "role": "status", "displayName": "위험 글자", "canonical": "#B42318" },
+      "warning-soft": { "role": "status", "displayName": "주의 바탕", "canonical": "#FFF4E5" },
+      "warning-text": { "role": "status", "displayName": "주의 글자", "canonical": "#B54708" },
+      "success-soft": { "role": "status", "displayName": "성공 바탕", "canonical": "#E7F5EC" },
+      "success-text": { "role": "status", "displayName": "성공 글자", "canonical": "#0B6B3A" }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "화면을 여는 큰 문장. 화면당 하나." },
+      "title": { "displayName": "Title", "purpose": "블록 제목, 가로 스크롤 섹션 제목." },
+      "headline": { "displayName": "Headline", "purpose": "버튼 라벨, 교시, D-day, 헤더 제목." },
+      "body": { "displayName": "Body", "purpose": "행 제목, 과목명, 입력값." },
+      "sub": { "displayName": "Sub", "purpose": "메타 정보, 칩·세그먼트 라벨, 안내문." },
+      "caption": { "displayName": "Caption", "purpose": "시작 시각, 각주, 배지." }
+    },
+    "shadows": [
+      { "name": "segment-thumb", "value": "0 1px 4px rgba(25,31,40,0.08)", "purpose": "세그먼트 컨트롤 선택 칸 전용. 그 외 그림자 없음." }
+    ],
+    "motion": [
+      { "name": "press-scale", "value": "transform: scale(0.98)", "purpose": "버튼 눌림 피드백. 바탕 한 단계 진하게와 함께." }
+    ],
+    "breakpoints": [
+      { "name": "web-max-column", "value": "480px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "화면당 하나의 주 동작. 보통 하단 고정.",
+      "html": "<button class=\"ds-btn-primary\">데모로 둘러보기</button>",
+      "css": ".ds-btn-primary { background: #087A70; color: #FFFFFF; min-height: 56px; padding: 0 20px; border: none; border-radius: 14px; font: 600 17px/26px system-ui, sans-serif; width: 100%; cursor: pointer; transition: background 0.1s, transform 0.1s; } .ds-btn-primary:active { background: #06635B; transform: scale(0.98); } .ds-btn-primary:focus-visible { outline: 2px solid #087A70; outline-offset: 2px; } .ds-btn-primary:disabled { opacity: 0.4; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "주 동작과 나란한 2순위 동작.",
+      "html": "<button class=\"ds-btn-secondary\">데모로 둘러보기</button>",
+      "css": ".ds-btn-secondary { background: #E6F4F2; color: #087A70; min-height: 56px; padding: 0 20px; border: none; border-radius: 14px; font: 600 17px/26px system-ui, sans-serif; width: 100%; cursor: pointer; } .ds-btn-secondary:active { background: #D3ECE8; transform: scale(0.98); } .ds-btn-secondary:focus-visible { outline: 2px solid #087A70; outline-offset: 2px; }"
+    },
+    {
+      "name": "Tertiary Button (md)",
+      "kind": "button",
+      "refersTo": "button-tertiary-md",
+      "description": "블록 안 보조 동작.",
+      "html": "<button class=\"ds-btn-tertiary\">프로필 수정</button>",
+      "css": ".ds-btn-tertiary { background: #F2F4F6; color: #4E5968; min-height: 44px; padding: 0 16px; border: none; border-radius: 14px; font: 600 14px/20px system-ui, sans-serif; cursor: pointer; } .ds-btn-tertiary:active { background: #E5E8EB; transform: scale(0.98); } .ds-btn-tertiary:focus-visible { outline: 2px solid #087A70; outline-offset: 2px; }"
+    },
+    {
+      "name": "Text Field",
+      "kind": "input",
+      "refersTo": "text-field",
+      "description": "채움 회색 입력칸, 포커스 시 흰 바탕 + 청록 테두리.",
+      "html": "<label class=\"ds-field\"><span class=\"ds-field-label\">이메일</span><input class=\"ds-input\" placeholder=\"name@example.com\"></label>",
+      "css": ".ds-field { display: block; } .ds-field-label { display: block; margin-bottom: 8px; color: #4E5968; font: 600 14px/20px system-ui, sans-serif; } .ds-input { width: 100%; height: 52px; padding: 0 16px; background: #F2F4F6; border: 1.5px solid transparent; border-radius: 14px; color: #191F28; font: 400 16px system-ui, sans-serif; outline: none; } .ds-input::placeholder { color: #6B7684; } .ds-input:focus { background: #FFFFFF; border-color: #087A70; }"
+    },
+    {
+      "name": "Chip",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "관심사·수강 과목 선택. 선택 시 옅은 청록 + 청록 테두리.",
+      "html": "<button class=\"ds-chip\">프로그래밍</button><button class=\"ds-chip ds-chip-on\" aria-pressed=\"true\">취업</button>",
+      "css": ".ds-chip { min-height: 40px; padding: 0 16px; margin: 0 8px 8px 0; background: #F2F4F6; color: #191F28; border: 1.5px solid transparent; border-radius: 999px; font: 400 14px/20px system-ui, sans-serif; cursor: pointer; } .ds-chip:active { opacity: 0.7; } .ds-chip:focus-visible { outline: 2px solid #087A70; outline-offset: 2px; } .ds-chip-on { background: #E6F4F2; color: #087A70; border-color: #087A70; font-weight: 600; }"
+    },
+    {
+      "name": "Block with Rows",
+      "kind": "card",
+      "refersTo": "block",
+      "description": "회색 바탕 위 흰 블록. 제목은 블록 안, 행은 블록 끝까지 눌림.",
+      "html": "<div class=\"ds-desk\"><section class=\"ds-block\"><h3 class=\"ds-block-title\">나와 관련된 공지</h3><div class=\"ds-row\"><div class=\"ds-row-title\">2학기 수강 정정 기간 안내</div><div class=\"ds-row-meta\"><span class=\"ds-badge ds-badge-demo\">샘플</span> 2026. 10. 28.</div></div></section></div>",
+      "css": ".ds-desk { background: #F2F4F6; padding: 16px 20px; } .ds-block { background: #FFFFFF; border-radius: 20px; padding: 12px 0 8px; } .ds-block-title { margin: 0 20px 8px; min-height: 32px; display: flex; align-items: center; color: #191F28; font: 700 20px/28px system-ui, sans-serif; } .ds-row { min-height: 56px; padding: 12px 20px; cursor: pointer; } .ds-row:active { background: #F2F4F6; } .ds-row-title { color: #191F28; font: 400 16px/24px system-ui, sans-serif; } .ds-row-meta { margin-top: 4px; color: #6B7684; font: 400 14px/20px system-ui, sans-serif; display: flex; gap: 8px; align-items: center; } .ds-badge { border-radius: 6px; padding: 2px 6px; font: 600 12px/16px system-ui, sans-serif; } .ds-badge-demo { background: #FFF4E5; color: #B54708; }"
+    },
+    {
+      "name": "Source Badge",
+      "kind": "chip",
+      "refersTo": "badge",
+      "description": "출처 배지. 공식=청록, 학생·본인=회색, 샘플=황색. 항상 글자를 담는다.",
+      "html": "<span class=\"ds-src ds-src-official\">공식</span> <span class=\"ds-src ds-src-community\">학생 작성</span> <span class=\"ds-src ds-src-demo\">샘플</span>",
+      "css": ".ds-src { display: inline-block; border-radius: 6px; padding: 2px 6px; font: 600 12px/16px system-ui, sans-serif; } .ds-src-official { background: #E6F4F2; color: #087A70; } .ds-src-community { background: #F2F4F6; color: #4E5968; } .ds-src-demo { background: #FFF4E5; color: #B54708; }"
+    },
+    {
+      "name": "Segmented Control",
+      "kind": "custom",
+      "refersTo": "segmented",
+      "description": "언어 전환 등 2~3지 선택. 그림자가 허용되는 유일한 요소.",
+      "html": "<div class=\"ds-seg\" role=\"radiogroup\"><button class=\"ds-seg-opt ds-seg-on\" role=\"radio\" aria-checked=\"true\">한국어</button><button class=\"ds-seg-opt\" role=\"radio\" aria-checked=\"false\">日本語</button></div>",
+      "css": ".ds-seg { display: flex; background: #F2F4F6; border-radius: 14px; padding: 4px; } .ds-seg-opt { flex: 1; min-height: 40px; border: none; border-radius: 10px; background: transparent; color: #4E5968; font: 500 14px/20px system-ui, sans-serif; cursor: pointer; } .ds-seg-opt:focus-visible { outline: 2px solid #087A70; outline-offset: 2px; } .ds-seg-on { background: #FFFFFF; color: #191F28; font-weight: 700; box-shadow: 0 1px 4px rgba(25,31,40,0.08); }"
+    },
+    {
+      "name": "Today Timetable Row",
+      "kind": "custom",
+      "refersTo": "block",
+      "description": "홈 오늘 수업 행. 지금/다음 수업 하나만 옅은 청록 강조.",
+      "html": "<div class=\"ds-class ds-class-focus\"><div class=\"ds-class-period\">4교시<small>16:56</small></div><div><div class=\"ds-class-name\">영어 커뮤니케이션</div><div class=\"ds-class-meta\"><span class=\"ds-pill\">다음</span> 2호관 305</div></div></div>",
+      "css": ".ds-class { display: flex; align-items: center; gap: 12px; padding: 12px; border-radius: 14px; background: #FFFFFF; } .ds-class-focus { background: #E6F4F2; } .ds-class-period { width: 56px; color: #191F28; font: 700 17px/26px system-ui, sans-serif; font-variant-numeric: tabular-nums; } .ds-class-focus .ds-class-period { color: #087A70; } .ds-class-period small { display: block; color: #6B7684; font: 500 12px/16px system-ui, sans-serif; } .ds-class-name { color: #191F28; font: 600 16px/24px system-ui, sans-serif; } .ds-class-meta { margin-top: 2px; display: flex; gap: 8px; align-items: center; color: #6B7684; font: 400 14px/20px system-ui, sans-serif; } .ds-pill { background: #E6F4F2; color: #087A70; border-radius: 6px; padding: 2px 6px; font: 600 12px/16px system-ui, sans-serif; }"
+    },
+    {
+      "name": "Bottom Tab Bar",
+      "kind": "nav",
+      "refersTo": "tab-bar",
+      "description": "하단 탭 5개. 선택 먹색 채움 아이콘, 비선택 비활성 회색 외곽선 아이콘.",
+      "html": "<nav class=\"ds-tabs\"><a class=\"ds-tab ds-tab-on\" aria-current=\"page\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M12 3 3 10.5V21h6v-6h6v6h6V10.5z\" fill=\"currentColor\"/></svg>홈</a><a class=\"ds-tab\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><circle cx=\"10.5\" cy=\"10.5\" r=\"6.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"/><path d=\"m15.5 15.5 5 5\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/></svg>검색</a></nav>",
+      "css": ".ds-tabs { display: flex; background: #FFFFFF; border-top: 1px solid #E5E8EB; height: 60px; padding: 6px 0; } .ds-tab { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #B0B8C1; font: 600 11px/15px system-ui, sans-serif; text-decoration: none; cursor: pointer; } .ds-tab-on { color: #191F28; } .ds-tab:focus-visible { outline: 2px solid #087A70; outline-offset: -2px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "회색 책상 위 흰 카드 묶음",
+    "overview": "KSU Campus는 새 시각 언어를 만들지 않는다. 에브리타임·토스·당근·LINE이 이미 길들인 카테고리 표준을 그대로 쓰고, 그 완성도로 경쟁한다. 회색 바탕 위에 흰 둥근 블록을 쌓고, 블록 사이는 테두리나 그림자가 아니라 바탕색 틈과 간격으로 나눈다. 장식·은유·일러스트 테마는 없다. 화면을 여는 것은 큰 문장 하나다(홈: \"오늘 수업 2개\" + 강조색 다음 수업 줄).\n\n위계는 시스템 폰트의 크기와 굵기, 그리고 회색 세 단계 글자색으로 만든다. 색은 청록 강조색 하나뿐이며, 상태(경고·위험·성공)는 옅은 바탕 + 진한 글자 쌍으로만 나온다. 출처(공식·학생·샘플)는 항상 작은 글자 배지로 보이며, 색과 글자를 함께 써서 색만으로 구분하지 않는다.\n\n라이트 모드 고정이다. 다크 모드는 지원하지 않으므로 다크 토큰을 만들지 않는다. 학교 공식 색·로고·교표는 쓰지 않는다.",
+    "keyCharacteristics": [
+      "회색 바탕(bg) + 흰 블록(surface, 20 둥근 모서리), 테두리·그림자 없음",
+      "강조색 하나(청록), 상태색은 soft 바탕 + 진한 글자 쌍",
+      "시스템 폰트, 6단계 글자 크기, 굵기로 위계",
+      "4 단위 간격, 화면 좌우 여백 20",
+      "한 손 조작: 터치 영역 48, 주 버튼 높이 56, 주 버튼은 하단 고정",
+      "출처 배지가 모든 정보 항목에 붙는다"
+    ],
+    "rules": [
+      { "name": "The One Accent Rule", "body": "강조색은 청록 하나다. 두 번째 브랜드색을 들이지 않는다. 상태색은 정보 전달용이며 장식으로 쓰지 않는다.", "section": "colors" },
+      { "name": "The Tertiary-on-White Rule", "body": "text-tertiary는 흰 블록(surface) 위에서만 쓴다. 회색 바탕(bg) 위의 보조 글자는 text-secondary를 쓴다.", "section": "colors" },
+      { "name": "The Source Badge Rule", "body": "공식=청록 배지, 학생 작성·본인 입력=회색 배지, 샘플=황색 배지. 배지는 항상 글자를 담아 색만으로 출처를 말하지 않는다.", "section": "colors" },
+      { "name": "The Same-Level Same-Step Rule", "body": "같은 계층은 같은 단계만 쓴다. 위계를 바꿀 때는 크기를 새로 만들지 말고 단계나 굵기를 바꾼다.", "section": "typography" },
+      { "name": "The Korean Word-Break Rule", "body": "한국어는 어절 단위 줄바꿈(iOS hangul-word, 웹 keep-all), 일본어는 기본 줄바꿈.", "section": "typography" },
+      { "name": "The Gray-Desk / White-Form Rule", "body": "입력 흐름 화면(온보딩 단계·로그인·회원가입·비밀번호 재설정)은 흰 바탕(surface)에 블록 없이 필드를 바로 놓는다. 그 외 화면(시작 화면·탭 5개·알림·프로필 편집)은 회색 바탕(bg) 위 흰 블록이다.", "section": "layout" },
+      { "name": "The Title Placement Rule", "body": "섹션 제목은 블록 안(BlockHeader, Title 단계)에 둔다. 예외는 가로 스크롤 섹션(홈 \"다가오는 마감\") 하나뿐이며, 이때만 제목을 블록 밖 회색 바탕 위에 두고 아래 12를 띄운다.", "section": "layout" },
+      { "name": "The Tone-Not-Shadow Rule", "body": "층은 회색과 흰색의 교대로만 나눈다. 세그먼트 썸 외에는 그림자를 쓰지 않는다.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do 새 화면을 회색 바탕 + 흰 블록(20)으로 짓고, 블록 사이는 12, 섹션 전환은 24로 띄운다.",
+      "Do 입력 흐름 화면만 흰 바탕에 블록 없이 필드를 놓는다.",
+      "Do 섹션 제목은 블록 안 Title로 두고, 가로 스크롤 섹션만 블록 밖에 둔다.",
+      "Do 모든 정보 항목에 글자 있는 출처 배지를 붙인다.",
+      "Do 주 동작은 화면당 하나의 청록 56 버튼으로, 하단에 고정한다.",
+      "Do 숫자에는 tabular-nums를 쓴다.",
+      "Do 미구현 기능은 \"n단계 예정\" Pill과 누를 수 없는 목록으로 보인다."
+    ],
+    "donts": [
+      "Don't 블록·카드에 테두리나 그림자를 넣는다(세그먼트 썸만 예외).",
+      "Don't 두 번째 강조색이나 학교 공식 색·로고를 쓴다.",
+      "Don't 회색 바탕 위에 text-tertiary 글자를 쓴다.",
+      "Don't 토큰에 없는 글자 크기를 새로 만든다.",
+      "Don't 다크 모드 토큰을 만든다(라이트 고정).",
+      "Don't 색만으로 상태나 출처를 구분한다."
+    ]
+  }
+}
