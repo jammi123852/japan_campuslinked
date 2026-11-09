@@ -2,6 +2,9 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import Constants from 'expo-constants';
 import { Platform } from 'react-native';
 
+import { DemoHttpError, handleDemoRequest } from './demo/demoServer';
+import { STATIC_DEMO } from './demo/staticDemo';
+
 /**
  * 공유 API(게시글·댓글) 클라이언트. 서버는 사용자 PC 의 server/index.ts.
  *
@@ -90,6 +93,8 @@ async function loadRuntimeConfig(): Promise<string | null> {
 }
 
 export async function getApiUrl(force = false): Promise<string | null> {
+  // 공개 데모: 서버 대신 브라우저 안 데모 서버를 쓴다 (주소는 저장 키 구분용 이름일 뿐 접속하지 않는다)
+  if (STATIC_DEMO) return 'demo://browser';
   if (cachedUrl !== undefined && !force) return cachedUrl;
   const fromEnv = process.env.EXPO_PUBLIC_API_URL || null;
   const candidate = fromEnv ?? (await loadRuntimeConfig());
@@ -101,6 +106,15 @@ export async function getApiUrl(force = false): Promise<string | null> {
 // ------------------------------------------------------------ 요청
 
 async function request<T>(path: string, init: { method?: string; body?: unknown; token?: string; signal?: AbortSignal } = {}): Promise<T> {
+  if (STATIC_DEMO) {
+    if (init.signal?.aborted) throw new ApiError('aborted');
+    try {
+      return (await handleDemoRequest(path, init)) as T;
+    } catch (e) {
+      if (e instanceof DemoHttpError) throw new ApiError('http', { status: e.status, code: e.code });
+      throw e;
+    }
+  }
   const base = await getApiUrl();
   if (!base) throw new ApiError('not_configured');
   const send = (url: string) =>

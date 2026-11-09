@@ -12,6 +12,7 @@ import { PostRow } from '@/features/community/PostRow';
 import { apiErrorText, usePosts } from '@/features/community/usePosts';
 import { useI18n } from '@/i18n';
 import { POST_CATEGORIES, type PostCategory } from '@/lib/api';
+import { STATIC_DEMO } from '@/lib/demo/staticDemo';
 import { colors, gutter, space } from '@/theme/tokens';
 
 /** 운영팀 공식자료 정리글 목록. 학생 게시글·후기와 섞지 않는다 */
@@ -88,7 +89,7 @@ export default function CommunityScreen() {
         </View>
       </View>
       <T variant="sub" tone="secondary" style={{ marginBottom: space.md }}>
-        {t.community.shared}
+        {STATIC_DEMO ? t.staticDemo.shared : t.community.shared}
       </T>
 
       <Segmented<'posts' | 'ops'>

@@ -2,10 +2,11 @@ import { router } from 'expo-router';
 import { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 
-import { Block, Button, Gap, Pill, Screen, Segmented, SourceBadge, T } from '@/components/ui';
+import { Block, Button, Gap, Notice, Pill, Screen, Segmented, SourceBadge, T } from '@/components/ui';
 import { LOCALES, useI18n, type Locale } from '@/i18n';
 import { seedShowcase, useShowcase } from '@/features/official/showcase';
 import { loadOfficial } from '@/features/official/useOfficial';
+import { STATIC_DEMO } from '@/lib/demo/staticDemo';
 import { isSupabaseConfigured } from '@/lib/supabase';
 import { useApp } from '@/state/AppContext';
 import { colors, radius, space } from '@/theme/tokens';
@@ -88,7 +89,7 @@ export default function WelcomeScreen() {
             <>
               <Button
                 testID="start-showcase"
-                label={t.showcase.start}
+                label={STATIC_DEMO ? t.staticDemo.start : t.showcase.start}
                 variant="secondary"
                 loading={starting}
                 onPress={async () => {
@@ -162,6 +163,11 @@ export default function WelcomeScreen() {
           <Segmented<Locale> label={t.mypage.language} testIDPrefix="welcome-locale" value={locale} onChange={setLocale} options={LOCALES} />
         </View>
       </View>
+      {STATIC_DEMO ? (
+        <View style={{ marginTop: space.lg }} testID="static-demo-notice">
+          <Notice text={t.staticDemo.notice} />
+        </View>
+      ) : null}
       <Gap size={space.xxl} />
       <TodayPreview />
     </Screen>

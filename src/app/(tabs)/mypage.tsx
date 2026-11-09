@@ -10,6 +10,7 @@ import { LOCALES, useI18n, type Locale } from '@/i18n';
 import { checkHealth } from '@/lib/api';
 import { useSaved } from '@/services/savedRepository';
 import { useApp } from '@/state/AppContext';
+import { STATIC_DEMO } from '@/lib/demo/staticDemo';
 import { space } from '@/theme/tokens';
 
 /** 웹에서는 Alert.alert 버튼이 동작하지 않아 confirm 을 쓴다 */
@@ -148,7 +149,7 @@ export default function MyPageScreen() {
         </View>
         <View style={styles.listPad}>
           <Row title={t.mypage.loginMode} subtitle={isDemo ? (session.email ? t.schoolEntry.mode(session.email) : t.mypage.demoMode) : t.mypage.emailMode(session.email ?? '-')} />
-          <Row title={t.mypage.server} subtitle={serverOk == null ? t.common.loading : serverOk ? t.mypage.serverOn : t.mypage.serverOff} />
+          <Row title={t.mypage.server} subtitle={STATIC_DEMO ? t.staticDemo.server : serverOk == null ? t.common.loading : serverOk ? t.mypage.serverOn : t.mypage.serverOff} />
         </View>
       </Block>
 

@@ -1,5 +1,6 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from 'react';
 
+import { STATIC_DEMO } from '@/lib/demo/staticDemo';
 import { readJson, writeJson } from '@/lib/storage';
 import { ja } from './ja';
 import { ko, type Strings } from './ko';
@@ -11,7 +12,15 @@ export const LOCALES: { value: Locale; label: string }[] = [
   { value: 'ja', label: '日本語' },
 ];
 
-const TABLES: Record<Locale, Strings> = { ko, ja };
+/** 공개 데모: 'Claude API 로 전송' 안내는 사실이 아니므로(아무것도 보내지 않음) 'AI 꺼짐' 안내로 바꾼다 */
+const SENDS_TO_AI = /Claude API.*(전송|送信)|(전송|送信).*Claude API/;
+function demoize<T>(v: T, aiOff: string): T {
+  if (typeof v === 'string') return (SENDS_TO_AI.test(v) ? aiOff : v) as T;
+  if (v && typeof v === 'object' && !Array.isArray(v)) return Object.fromEntries(Object.entries(v).map(([k, x]) => [k, demoize(x, aiOff)])) as T;
+  return v;
+}
+
+const TABLES: Record<Locale, Strings> = STATIC_DEMO ? { ko: demoize(ko, ko.staticDemo.aiOff), ja: demoize(ja, ja.staticDemo.aiOff) } : { ko, ja };
 const LOCALE_KEY = 'ksu:v1:locale';
 
 /**

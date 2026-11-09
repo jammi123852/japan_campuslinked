@@ -23,6 +23,7 @@ import { PostRow } from '@/features/community/PostRow';
 import { usePosts } from '@/features/community/usePosts';
 import { upcomingDeadlines, overdueDeadlines } from '@/features/schedule/scheduleLogic';
 import { ApiError } from '@/lib/api';
+import { STATIC_DEMO } from '@/lib/demo/staticDemo';
 import { academicNow } from '@/lib/dates';
 import { refreshInbox, useInbox } from '@/services/inboxRepository';
 import { useEvents } from '@/services/scheduleRepository';
@@ -171,6 +172,11 @@ export default function HomeScreen() {
         {/* 언어 전환·알림 버튼은 모든 화면 공통(GlobalActions)이 이 자리에 겹쳐 보인다 */}
         <View style={{ width: GLOBAL_ACTIONS_WIDTH, height: 44 }} />
       </View>
+      {STATIC_DEMO ? (
+        <View style={{ marginBottom: space.md }} testID="static-demo-notice">
+          <Notice text={t.staticDemo.notice} />
+        </View>
+      ) : null}
 
       <View style={styles.hero}>
         <T variant="sub" tone="secondary">
